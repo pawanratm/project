@@ -26,10 +26,10 @@ export class UserService {
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
         return user;
+      } else {
+        return "Wrong username or password!";
       }
-    } else {
-      return "Wrong username or password!";
-    }
+    } else return "Wrong username or password!";
   }
 
   async findOne(username: string): Promise<any> {
